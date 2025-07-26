@@ -37,7 +37,7 @@ def main():
             player["inventory"].append(random_treasure)
             
         else:
-            print("\nYou were hit by a trap taking 2 damage points!")
+            print("You were hit by a trap taking 2 damage points!")
             player["health"] -= 2
         
 
@@ -46,9 +46,9 @@ def main():
         
         if len(player["inventory"]) != 0:
             stringified_inventory = ", ".join(player["inventory"])
-            print(f"Your inventory contains: {stringified_inventory}")
+            print(f"{player["name"]}'s inventory contains: {stringified_inventory}")
         else:
-            print("Your inventory is empty!")
+            print(f"{player["name"]}'s inventory is empty!")
 
 
     def end_game(player, treasures):
@@ -68,15 +68,18 @@ def main():
                 choice = input("\nWhat is your choice (1-4): ").strip()
 
                 if choice == "1":
+                    print("\nYou search the room...")
                     search_room(player, treasures)
 
                 elif choice == "2":
+                    print("\nYou move to the next room.")
                     break
                 
                 elif choice == "3":
                     check_status(player)
 
                 elif choice == "4":
+                    print("ENDING GAME!")
                     end_game(player, treasures)
                     return
 
